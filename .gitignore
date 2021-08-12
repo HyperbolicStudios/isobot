@@ -1,1 +1,9 @@
+googleKey.json
 tokens.json
+__pycache__
+.ipynb_checkpoints
+chromedriver.exe
+playground.py
+.replit
+poetry.lock
+pyproject.toml
