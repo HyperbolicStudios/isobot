@@ -19,6 +19,7 @@ Note that the letter "X" in any command refers to the game you are analyzing - b
 ## Retrieving ISOs
 
 `$isoX <player name>` - generates a single ISO of player <player name> from game X exclusively. Link should persistent for one hour.
+  
 `$isoX name range:Y,Z` - generates a single ISO of player <player name> from game X, listing every post from page Y to page Z. Don't forget the comma.
 
 `$isoX all` - posts links to ISOs of every single player in game X. Link should persist for one day.
