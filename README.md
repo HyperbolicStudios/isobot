@@ -2,7 +2,6 @@
 
 ## Assistance:
 ## Functionality
-This bot does a few things: first, it stores in a database every post in games A, B, and C. Updates to the database are done every three hours, and typically takes under 10 minutes. Second, the bot collects posts and generates ISOs on command. The bot is also capable of generating ISOs for *all* players at once (if a mod wants to post links to every ISO at EoD, for instance) and can also generate ISOs restricted to page ranges. \n
       ## Assistance and setup
       Note that the letter "X" in any command refers to the game you are analyzing - be it A, B, or C. (case-sensitive)
         `$iso help` - prints this help message
