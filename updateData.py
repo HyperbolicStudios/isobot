@@ -2,7 +2,7 @@ import time
 import traceback
 from pbwrap import Pastebin
 import json
-
+from pastemyst import Client, Language, Paste, Pasty, ExpiresIn, EditType
 import os
 from replit import db
 from inspect import getsourcefile
@@ -24,16 +24,13 @@ def getToken(tokenName):
     return data[tokenName]
 
 #Pastebin stuff to dump error data
-def pasteData(text):
-  api_dev_key = getToken("pastebin")
-  username = getToken("pastebin_username")
-  password = getToken("pastebin_password")
-
-  pastebin = Pastebin(api_dev_key)
-  pastebin.authenticate(username, password)
-  url = pastebin.create_paste(text, api_paste_private=2, api_paste_name=None, api_paste_expire_date='10M', api_paste_format=None)
-  return(url)
-
+def pasteData(text,persistence = "ONE_HOUR"):
+  client = Client(key='')
+  if(persistence == "ONE_DAY"):
+    res4 = client.create_paste(Paste(pasties=[Pasty('ISO', text)], expires_in=ExpiresIn.ONE_DAY))
+  else:
+    res4 = client.create_paste(Paste(pasties=[Pasty('ISO', text)], expires_in=ExpiresIn.ONE_HOUR))
+  return("https://paste.myst.rs/"+res4.id)
 def getData(key):
   i = 0
   while(1):
@@ -66,6 +63,8 @@ def listData():
   format = ("Stored data:\n")
 
   for key in db.keys():
+    if(key.find("listofposts") == -1):
         format = format + key + ": " + str(db[key]) + "\n"
-
+    else:
+      format = format + "{}: {} items.\n".format(key,len(db[key]))
   return format
